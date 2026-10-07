@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Matthew's Cup</title>
+  <meta name="description" content="Matthew's personal rebrand of the classic Kings Cup drinking game. Pass the phone, flip a card, follow the rule.">
+  <meta name="theme-color" content="#0b0b12">
+  <meta property="og:title" content="Matthew's Cup">
+  <meta property="og:description" content="A modern take on the classic Kings Cup drinking game.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍺%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#table">Skip to game</a>
+  <header class="top">
+    <div class="brand"><span aria-hidden="true">🍺</span> Matthew's Cup</div>
+    <button class="ghost" id="rulesBtn" aria-haspopup="dialog">Rules</button>
+  </header>
+
+  <main id="table">
+    <section class="hero" aria-labelledby="h1">
+      <h1 id="h1">Matthew's<br><em>Cup.</em></h1>
+      <p class="sub">My personal rebrand of Kings Cup. Pass the phone. Flip a card. Follow the rule. Draw the fourth king and the cup is yours.</p>
+    </section>
+
+    <section class="stage" aria-live="polite">
+      <div class="progress" role="status">
+        <span><b id="left">52</b> cards left</span>
+        <span class="kings" id="kings" aria-label="Kings drawn"><i></i><i></i><i></i><i></i></span>
+      </div>
+
+      <button class="card" id="card" aria-label="Flip the next card">
+        <span class="face back" aria-hidden="true"><span class="pattern">♠ ♥ ♣ ♦</span></span>
+        <span class="face front" id="front" hidden>
+          <span class="corner tl"><b id="rank"></b><span id="suit"></span></span>
+          <span class="corner br"><b id="rank2"></b><span id="suit2"></span></span>
+          <span class="rule-title" id="title"></span>
+          <span class="rule-text" id="text"></span>
+        </span>
+      </button>
+
+      <p class="hint" id="hint">Tap the card to flip it</p>
+      <div class="actions">
+        <button class="primary" id="next">Draw card</button>
+        <button class="ghost" id="reset">New game</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Drink responsibly. Never drink and drive. Must be of legal drinking age.</footer>
+
+  <dialog id="rules">
+    <form method="dialog" class="dlg-head"><h2>The rules</h2><button class="ghost" aria-label="Close rules">Close</button></form>
+    <ul id="rulesList"></ul>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

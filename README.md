@@ -1,34 +1,33 @@
-# php-getting-started
+# Matthew's Cup
 
-A barebones PHP app that makes use of the [Silex](http://silex.sensiolabs.org/) web framework, which can easily be deployed to Heroku.
+My personal rebrand of the classic drinking game Kings Cup, rebuilt as a fast, modern, mobile-first web app.
 
-This application supports the [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php) article - check it out.
+**Live:** https://matthewscup.matthew-tran.com
 
-## Deploying
+![Matthew's Cup screenshot](docs/screenshot.png)
 
-Using resources for this example app counts towards your usage. [Delete your app](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-destroy) and [database](https://devcenter.heroku.com/articles/heroku-postgresql#removing-the-add-on) as soon as you are done experimenting to control costs.
+## How to play
 
-By default, apps use Eco dynos if you are subscribed to Eco. Otherwise, it defaults to Basic dynos. The Eco dynos plan is shared across all Eco dynos in your account and is recommended if you plan on deploying many small apps to Heroku. Learn more about our low-cost plans [here](https://blog.heroku.com/new-low-cost-plans).
+1. Gather 2 or more players in a circle, each with a drink in hand.
+2. Pass the phone around. On your turn, tap the card to flip it.
+3. Follow the rule shown on the card (tap **Rules** for the full list).
+4. Each king adds to the cup. Whoever draws the fourth king drinks it.
 
-Eligible students can apply for platform credits through our new [Heroku for GitHub Students program](https://blog.heroku.com/github-student-developer-program).
+*Drink responsibly. Never drink and drive. Must be of legal drinking age.*
 
-Install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+## Tech
+
+Plain HTML, CSS and vanilla JavaScript. There is no build step and no dependencies.
+Everything is in [`public/`](public).
 
 ```sh
-$ git clone git@github.com:heroku/php-getting-started.git # or clone your own fork
-$ cd php-getting-started
-$ heroku create
-$ git push heroku main
-$ heroku open
+python3 -m http.server 8000 -d public   # then open http://localhost:8000
 ```
 
-or
+Deployed on Vercel (see `vercel.json`).
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+## What changed in v2
 
-## Documentation
-
-For more information about using PHP on Heroku, see these Dev Center articles:
-
-- [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php)
-- [PHP on Heroku](https://devcenter.heroku.com/categories/php)
+- Replaced the PHP/Silex Heroku starter template with a static single-page app
+- Dark, card-based UI with responsive layout, keyboard and screen-reader support, and reduced-motion support
+- Full 52-card shuffled deck, king counter, rules dialog and game-over state
